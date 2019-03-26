@@ -1,4 +1,6 @@
 cmake_minimum_required(VERSION 3.12)
+SET(CMAKE_C_COMPILER "clang")
+SET(CMAKE_CXX_COMPILER "clang++")
 project(rvmbops)
 
 set (CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
@@ -17,6 +19,9 @@ add_custom_target(
 
 file(GLOB SOURCES
   "${CMAKE_SOURCE_DIR}/src/*.cpp"
+)
+list(REMOVE_ITEM SOURCES
+  "${CMAKE_SOURCE_DIR}/src/rvmbops.cpp"
 )
 
 add_library (${PROJECT_NAME} SHARED ${SOURCES})
