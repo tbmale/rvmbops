@@ -1,0 +1,6 @@
+[submodule "cork"]
+	path = cork
+	url = https://github.com/tbmale/cork.git
+[submodule "rvmparser"]
+	path = rvmparser
+	url = https://github.com/tbmale/rvmparser.git
