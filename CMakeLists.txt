@@ -25,5 +25,7 @@ list(REMOVE_ITEM SOURCES
 )
 
 add_library (${PROJECT_NAME} SHARED ${SOURCES})
-target_link_libraries(${PROJECT_NAME} ${CMAKE_SOURCE_DIR}/cork/lib/libcork.a)
-add_dependencies(rvmbops cork)
+target_link_libraries(${PROJECT_NAME} ${CMAKE_SOURCE_DIR}/cork/lib/libcork.a libmpir.a)
+add_executable(${PROJECT_NAME}test.exe ${SOURCES} ${CMAKE_SOURCE_DIR}/src/rvmbops.cpp)
+target_link_libraries(${PROJECT_NAME}test.exe ${CMAKE_SOURCE_DIR}/cork/lib/libcork.a ${PROJECT_NAME} libmpir.a)
+add_dependencies(${PROJECT_NAME} cork)
